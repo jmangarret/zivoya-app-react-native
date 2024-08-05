@@ -7,6 +7,10 @@ require Pod::Executable.execute_command('node', ['-p',
 
 platform :ios, min_ios_version_supported
 prepare_react_native_project!
+pod 'Firebase', :modular_headers => true 
+pod 'FirebaseCore', :modular_headers => true
+pod 'FirebaseCoreInternal', :modular_headers => true 
+pod 'GoogleUtilities', :modular_headers => true 
 
 linkage = ENV['USE_FRAMEWORKS']
 if linkage != nil
@@ -36,5 +40,12 @@ target 'ZivoyaNew' do
       :mac_catalyst_enabled => false,
       # :ccache_enabled => true
     )
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+         if config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < 17.0
+           config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '17.4'
+         end
+      end
+    end
   end
 end
