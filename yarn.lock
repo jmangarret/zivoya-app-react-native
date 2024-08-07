@@ -3040,6 +3040,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-google-signin/google-signin@npm:^12.2.1":
+  version: 12.2.1
+  resolution: "@react-native-google-signin/google-signin@npm:12.2.1"
+  peerDependencies:
+    expo: ">=50.0.0"
+    react: "*"
+    react-dom: "*"
+    react-native: "*"
+  peerDependenciesMeta:
+    expo:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 214a51d4b98a74b3f8f26aaf2882d95d37592aebfc59f2c65619234f64aa545a72a7ba3b2cb19eebf02312758ec0f6c12c5fe801bb3da613bf79d9914f247dac
+  languageName: node
+  linkType: hard
+
 "@react-native-picker/picker@npm:^2.4.0":
   version: 2.7.7
   resolution: "@react-native-picker/picker@npm:2.7.7"
@@ -3834,6 +3851,7 @@ __metadata:
     "@react-native-community/datetimepicker": ^8.2.0
     "@react-native-firebase/app": ^20.3.0
     "@react-native-firebase/messaging": ^20.3.0
+    "@react-native-google-signin/google-signin": ^12.2.1
     "@react-native-picker/picker": ^2.4.0
     "@react-native/babel-preset": 0.74.86
     "@react-native/eslint-config": 0.74.86
@@ -3885,6 +3903,7 @@ __metadata:
     react-native-safe-area-context: 4.10.8
     react-native-screens: 3.33.0
     react-native-share: ^10.2.1
+    react-native-splash-screen: ^3.3.0
     react-native-svg: ^15.4.0
     react-native-vector-icons: ^10.1.0
     react-redux: ^9.1.2
@@ -9804,6 +9823,15 @@ __metadata:
   version: 10.2.1
   resolution: "react-native-share@npm:10.2.1"
   checksum: 9dd4e0329b344668e04ff5421ab982e319dc3ba988d0b7990a619bd1c551beb6012623abe238a80e427f86f2bb03dd21b7afc0e957ee7348e0bd9fb39956912e
+  languageName: node
+  linkType: hard
+
+"react-native-splash-screen@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "react-native-splash-screen@npm:3.3.0"
+  peerDependencies:
+    react-native: ">=0.57.0"
+  checksum: 14c565d5d4214f55586dcf6f7abd12d99d3e0667f67de3bda7aa24988971567b283a4187fbc0c6269c83b3c21d59d1950335c61bb0780ec2d065e20b3b9199d0
   languageName: node
   linkType: hard
 
