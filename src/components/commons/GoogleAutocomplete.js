@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, Image } from 'react-native';
 import { GooglePlacesAutocomplete } from '../autocomplete/GooglePlacesAutocomplete';
-import I18n from '../../utils/i18n';
+import { GOOGLE_KEY_PLACES} from "@env";
 
 const GooglePlacesInput = props => (
 	<GooglePlacesAutocomplete
@@ -14,7 +13,7 @@ const GooglePlacesInput = props => (
 		cleanCache={props.cleanCache}
 		query={{
 			// available options: https://developers.google.com/places/web-service/autocomplete
-			key: 'AIzaSyAIvUqecwYM5ERpUGHFYbgDbfXkbZ-ALrI',
+			key: GOOGLE_KEY_PLACES,
 			libraries: 'places',
 			language: 'en',
 			types: 'address'
