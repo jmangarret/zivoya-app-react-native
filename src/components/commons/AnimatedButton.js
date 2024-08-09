@@ -109,4 +109,4 @@ export default connect(mapStateToProps, {
 
 })(AnimatedButton);
 
-export {AnimatedButton}
+// export {AnimatedButton}
