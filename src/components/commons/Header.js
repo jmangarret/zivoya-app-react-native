@@ -4,6 +4,7 @@ import { Appbar } from 'react-native-paper';
 import { connect } from 'react-redux';
 import { Image, TouchableOpacity, Text, View, Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
+import { PRIMARY } from '../../../assets/colors/colors'
 import LinearGradient from 'react-native-linear-gradient';
 import I18n from '../../utils/i18n';
 import { saveIdAccount, continueAsAGuest, setLanguage, removeNotification, setNotification } from '../../redux/actions';
@@ -40,16 +41,23 @@ class Header extends Component {
 
     return (
 
-      <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['white', 'white']} style={{ height: Platform.OS === 'ios' ? 100 : 60, paddingTop: Platform.OS === 'ios' ? 25 : 5 }}>
+      // <Appbar.Header>
+      //   <Appbar.BackAction onPress={() => { }} />
+      //   <Appbar.Content title="Zivoya" />
 
-        <Appbar.Header style={{ elevation: 0, shadowOpacity: 0, paddingBottom: '-1%', flexDirection: 'row', justifyContent: 'space-between', backgroundColor: 'white' }} >
+      //   {/* <Appbar.Action  onPress={() => { }} /> */}
+      //   <Image style={{ width: 94.91, height: 32.25 }} source={require('../../../assets/images/zivoya.png')} />
+      // </Appbar.Header>
+      <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['white', 'white']} >
+
+       <Appbar.Header style={{ elevation: 0, shadowOpacity: 0, paddingBottom: '-1%', flexDirection: 'row', justifyContent: 'space-between', backgroundColor: 'white' }} >
+
 
           <Appbar.Action />
 
           <Image style={{ width: 94.91, height: 32.25 }} source={require('../../../assets/images/zivoya.png')} />
-          {/* onClose={() => this.setState({ confirmationLogOut: true })} */}
 
-          <SideMenu onHide={(value) => this.setState({ confirmationLogOut: value })} visible={this.state.visibleMenu} setSideMenu={this.setSideMenu} applyFilters={this.applyFilters} onSwipeComplete={this.onSwipeComplete} showConfirmationLogOut={this.showConfirmationLogOut} ></SideMenu>
+          <SideMenu onHide={(value) => this.setState({ confirmationLogOut: value })} visible={this.state.visibleMenu} setSideMenu={this.setSideMenu} applyFilters={this.applyFilters} onSwipeComplete={this.onSwipeComplete} showConfirmationLogOut={this.showConfirmationLogOut} route={this.props.route} ></SideMenu>
 
 
           {this.state.confirmationLogOut == true ? <LogOutConfirmation visible={this.state.confirmationLogOut} showConfirmationLogOut={this.showConfirmationLogOut} > </LogOutConfirmation> : null}

@@ -43,7 +43,7 @@ import InvalidAccount from '../components/commons/InvalidAccount';
 import CommunErrors from './commons/errors/CommunErrors';
 import LoadPassengers from './LoadPassengers';
 import CustomAutoComplete from './AutoComplete';
-import {DateRangeSelector} from './DateRangeSelector';
+import DateRangeSelector from './DateRangeSelector';
 import FilterModal from './FilterModal';
 import CustomToast from './commons/CustomToast';
 import LottieView from 'lottie-react-native';
