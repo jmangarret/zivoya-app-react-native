@@ -17,10 +17,14 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Home">
+          <Stack.Navigator initialRouteName="Home"
+          screenOptions={{
+            gestureEnabled: true
+          }}
+          >
             <Stack.Screen name="Home" component={FlightSearch}  
-             options={({ route }) => ({
-              headerTitle: (props) => <Header route={route} {...props} />,
+             options={({ route, navigation }) => ({
+              header: (props) => <Header route={route} navigation={navigation} {...props} />,
             })}
             />
           </Stack.Navigator>

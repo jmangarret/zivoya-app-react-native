@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import SideMenu from './SideMenu';
 import { Appbar } from 'react-native-paper';
 import { connect } from 'react-redux';
-import { Image, TouchableOpacity, Text, View, Platform } from 'react-native';
-import Icon from 'react-native-vector-icons/Entypo';
-import { PRIMARY } from '../../../assets/colors/colors'
-import LinearGradient from 'react-native-linear-gradient';
-import I18n from '../../utils/i18n';
+import { Image, TouchableOpacity, Text, View, Platform, StyleSheet } from 'react-native';
+import IconEntypo from 'react-native-vector-icons/Entypo';
 import { saveIdAccount, continueAsAGuest, setLanguage, removeNotification, setNotification } from '../../redux/actions';
 import LogOutConfirmation from '../../components/commons/LogOutconfirmation';
 class Header extends Component {
@@ -41,41 +38,45 @@ class Header extends Component {
 
     return (
 
-      // <Appbar.Header>
-      //   <Appbar.BackAction onPress={() => { }} />
-      //   <Appbar.Content title="Zivoya" />
+      <View style={styles.container}>
 
-      //   {/* <Appbar.Action  onPress={() => { }} /> */}
-      //   <Image style={{ width: 94.91, height: 32.25 }} source={require('../../../assets/images/zivoya.png')} />
-      // </Appbar.Header>
-      <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={['white', 'white']} >
+       <Appbar.Header style={styles.header} >
 
-       <Appbar.Header style={{ elevation: 0, shadowOpacity: 0, paddingBottom: '-1%', flexDirection: 'row', justifyContent: 'space-between', backgroundColor: 'white' }} >
+          {this.props.route.name!='Home' && <Appbar.BackAction onPress={() => { this.props.navigation.goBack() }} />}
 
-
-          <Appbar.Action />
+          {this.props.route.name=='Home' && <Appbar.Action />}
 
           <Image style={{ width: 94.91, height: 32.25 }} source={require('../../../assets/images/zivoya.png')} />
 
           <SideMenu onHide={(value) => this.setState({ confirmationLogOut: value })} visible={this.state.visibleMenu} setSideMenu={this.setSideMenu} applyFilters={this.applyFilters} onSwipeComplete={this.onSwipeComplete} showConfirmationLogOut={this.showConfirmationLogOut} route={this.props.route} ></SideMenu>
 
-
           {this.state.confirmationLogOut == true ? <LogOutConfirmation visible={this.state.confirmationLogOut} showConfirmationLogOut={this.showConfirmationLogOut} > </LogOutConfirmation> : null}
 
           <TouchableOpacity onPress={() => this.setSideMenu(true)} style={{ paddingRight: 15 }} >
 
-            <Text style={{ backgroundColor: 'white', color: "#F16D2B", fontFamily: 'zivoya', fontSize: 32, textAlign: 'right', paddingTop: Platform.OS === 'ios' ? 1 : 0 }} >{':'} </Text>
+            <IconEntypo color={'#F16D2B'} name="menu" size={25} />
 
           </TouchableOpacity>
 
         </Appbar.Header>
 
-      </LinearGradient>
+      </View>
     );
 
 
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  header:{
+    elevation: 0, 
+    shadowOpacity: 0, 
+    justifyContent: 'space-between', 
+  }
+});
 
 const mapStateToProps = state => ({ ...state });
 

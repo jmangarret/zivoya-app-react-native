@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import {
   Animated, View, StyleSheet, Platform, TouchableWithoutFeedback, Text
 } from 'react-native';
+import IconEntypo from 'react-native-vector-icons/Entypo';
 
 class AnimatedButton extends Component {
 
@@ -59,8 +60,16 @@ class AnimatedButton extends Component {
       <TouchableWithoutFeedback style={textMode ? styles.containerMode : styles.container}
         onPress={() => this.PressIn()} >
         <Animated.View style={[ styles.button, animatedStyle, sizeStyle]}>
-          { this.props.icon !=  null ? <Text width={500} style={{ flexDirection: 'column', color: textMode ? "#F16D2B" : 'white', fontFamily: 'zivoya', fontSize: 20, paddingTop: 2}} >{ this.props.icon} </Text> : null }
-          <Text style={ textMode ? styles.textMode : styles.text } >{this.props.text} </Text>
+          { this.props.icon !=  null ? 
+          // <Text width={500} style={{ flexDirection: 'column', color: textMode ? "#F16D2B" : 'white', fontFamily: 'zivoya', fontSize: 20, paddingTop: 2}} >
+          //   { this.props.icon} 
+          // </Text>
+          <>
+          <IconEntypo color={textMode ? "#F16D2B" : 'white'} name={this.props.icon} size={25} style={{margin: '10px'}} />
+          <Text>&nbsp;&nbsp;</Text>
+          </> 
+          : null }
+          <Text style={ textMode ? styles.textMode : styles.text } >{this.props.text}</Text>
         </Animated.View>
       </TouchableWithoutFeedback>
     );
@@ -83,7 +92,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   button: {
-    backgroundColor: "transparent",
+    // backgroundColor: "transparent",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 5,

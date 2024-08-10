@@ -7,6 +7,7 @@ import {
   AppState,
   ScrollView,
   Platform,
+  Image
 } from 'react-native';
 import {connect} from 'react-redux';
 import moment from 'moment';
@@ -14,6 +15,7 @@ import 'moment/min/locales';
 import LinearGradient from 'react-native-linear-gradient';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import IconFeather from 'react-native-vector-icons/Feather';
+import IconEntypo from 'react-native-vector-icons/Entypo';
 import {
   GRAY02,
   PRIMARY,
@@ -663,19 +665,7 @@ class FlightSearch extends React.PureComponent {
             zIndex: 999999,
             textAlign: 'center',
           }}>
-          <Text
-            width={800}
-            style={{
-              backgroundColor: 'transparent',
-              flexDirection: 'row',
-              color: PRIMARY,
-              fontFamily: 'zivoya',
-              fontSize: 30,
-              height: 30,
-              width: 26,
-            }}>
-            {'A'}{' '}
-          </Text>
+          <IconEntypo name='aircraft-take-off' size={25} color={PRIMARY} />
         </TouchableOpacity>
       );
     } else {
@@ -695,22 +685,7 @@ class FlightSearch extends React.PureComponent {
             zIndex: 999999,
             textAlign: 'center',
           }}>
-          <Text
-            width={800}
-            style={{
-              flex: 1,
-              flexDirection: 'column',
-              color: PRIMARY,
-              fontFamily: 'zivoya',
-              fontSize: 30,
-              marginTop: Platform.OS == 'ios' ? 4 : 1,
-              justifyContent: 'center',
-              textAlign: 'center',
-              textAlignVertical: 'center',
-              marginLeft: Platform.OS == 'android' ? 2 : 0,
-            }}>
-            {'A'}{' '}
-          </Text>
+          <IconEntypo name='aircraft-take-off' size={25} color={PRIMARY} />
         </TouchableOpacity>
       );
     }
@@ -771,7 +746,7 @@ class FlightSearch extends React.PureComponent {
             backgroundColor: 'transparent',
             marginLeft: 10,
             marginRight: 10,
-            marginTop: 10,
+
           }}>
           {<Spinner visible={loading} autoPlay loop />}
           {/* Init modals errors */}
@@ -815,17 +790,7 @@ class FlightSearch extends React.PureComponent {
                     textAlignVertical: 'center',
                     paddingTop: 5,
                   }}>
-                  <Text
-                    width={800}
-                    style={{
-                      color: PRIMARY,
-                      fontFamily: 'zivoya',
-                      fontSize: 28,
-                      flexDirection: 'column',
-                      textAlign: 'center',
-                    }}>
-                    {'@'}
-                  </Text>
+                    <IconFeather name="repeat" size={25}  color={PRIMARY}/>
                   <Text
                     fontSize={14}
                     color={oneWayAirline ? '#2F4253' : 'white'}
@@ -855,16 +820,7 @@ class FlightSearch extends React.PureComponent {
                     textAlignVertical: 'center',
                     paddingTop: 5,
                   }}>
-                  <Text
-                    width={800}
-                    style={{
-                      color: PRIMARY,
-                      fontFamily: 'zivoya',
-                      fontSize: 28,
-                      flexDirection: 'column',
-                    }}>
-                    {'>'}
-                  </Text>
+                  <IconFeather name="arrow-right" size={25} color={PRIMARY}/>
                   <Text
                     fontSize={14}
                     color={oneWayAirline ? 'white' : '#2F4253'}
@@ -1136,7 +1092,7 @@ class FlightSearch extends React.PureComponent {
               <View style={{margin: 10}}></View>
               <View style={{justifyContent: 'center', flexDirection: 'row'}}>
                 <AnimatedButton
-                  icon={'-'}
+                  icon={'magnifying-glass'}
                   text={I18n.t('searchFlight')}
                   action={this.searchFlights}
                   height={50}
@@ -1169,18 +1125,7 @@ class FlightSearch extends React.PureComponent {
             <TouchableOpacity
               style={styles.filtersButton}
               onPress={() => this.setFilterModal(true)}>
-              <Text
-                width={500}
-                style={{
-                  flexDirection: 'column',
-                  color: 'white',
-                  fontFamily: 'zivoya',
-                  fontSize: 20,
-                  paddingTop: 11,
-                  textAlign: 'right',
-                }}>
-                {'%'}{' '}
-              </Text>
+              <Image style={{ flexDirection: 'column', width: 12, height: 12, top: Platform.OS === 'ios' ? 16 : 14 }} source={require('../../assets/images/filterw.png')} />
               <Text
                 width={500}
                 style={{
@@ -1275,14 +1220,11 @@ class FlightSearch extends React.PureComponent {
 
 const styles = StyleSheet.create({
   container: {
-    height: Platform.OS === 'ios' ? 100 : 0,
-    paddingTop: Platform.OS === 'ios' ? 10 : 0,
+    height: Platform.OS === 'ios' ? 125 : 0,
+    paddingTop: Platform.OS === 'ios' ? 0 : 0,
     backgroundColor: 'transparent',
-    height: 1000,
-    position: 'absolute',
-    top: -1000,
-    left: 0,
-    right: 0,
+    // left: 0,
+    // right: 0,
   },
   typeOfTripContainer: {
     backgroundColor: GRAY02,
@@ -1389,7 +1331,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
     height: 1000,
     position: 'absolute',
-    top: -1000,
+    // top: -1000,
     left: 0,
     right: 0,
   },

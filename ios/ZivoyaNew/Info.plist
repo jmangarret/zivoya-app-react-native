@@ -4,7 +4,9 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>MaterialIcons.ttf</string>
+		<string>Feather.ttf</string>
+		<string>Entypo.ttf</string>
+		<string>MaterialCommunityIcons.ttf</string>
 		<string>Ionicons.ttf</string>
 		<string>Foundation.ttf</string>
 		<string>FontAwesome.ttf</string>
